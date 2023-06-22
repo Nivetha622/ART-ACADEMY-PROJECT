@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Power Calculator and SquareRoot Calculator</title>
+    <script>
+      function calculate() {
+        var m = parseInt(document.getElementById("m").value);
+        var n = parseInt(document.getElementById("n").value);
+        var sqrt = Math.sqrt(m);
+        document.getElementById("sqrt").innerHTML = "The square root of " + m + " is " + sqrt;
+        var pow = Math.pow(m, n);
+        document.getElementById("pow").innerHTML = m + " raised to the power of " + n + " is " + pow;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Power Calculator and SquareRoot Calculator</h1>
+    <form>
+      <label for="m">m:</label>
+      <input type="number" id="m" required ><br><br>
+      <label for="n">n:</label>
+      <input type="number" id="n" reuired ><br><br>
+      <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+    <br>
+    <div id="sqrt"></div>
+    <div id="pow"></div>
+  </body>
+</html> 
