@@ -1,15 +1,29 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  
-  anchorLinks.forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const target = document.querySelector(this.getAttribute('href'));
-      
-      target.scrollIntoView({
-        behavior: 'smooth'
+$(document).ready(function(){
+
+    $('#menu').click(function(){
+        $(this).toggleClass('fa-times');
+        $('.navbar').toggleClass('nav-toggle');
     });
-});
-});
-});
+    $(window).on('load scroll',function(){
+
+        $('#menu').removeClass('fa-times');
+        $('.navbar').removeClass('nav-toggle');
+
+        $('section').each(function(){
+
+            let top = $(window).scrollTop();
+            let height = $(this).height();
+            let id = $(this).attr('id');
+            let offset = $(this).offset().top - 200;
+
+            if(top > offset && top < offset + height){
+                $('.navbar ul li a').removeClass('active');
+                $('.navbar').find(`[href="#${id}"]`).addClass('active');
+            }
+
+
+        });
+
+    });
+
+}); 
